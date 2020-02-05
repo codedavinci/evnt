@@ -14,9 +14,9 @@ const Container = styled.div`
   min-height: 100vh;
 `
 
-const Content = styled.div`
-  background-color: red;
-`
+// const Content = styled.div`
+//   background-color: red;
+// `
 
 const Main = ({ children }) => {
   return (

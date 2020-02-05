@@ -6,7 +6,7 @@ const Sidebar = styled.div`
   width: 220px;
   height: 100%;
   min-height: 100vh;
-  background-color: #1d45a8;
+  background-color: ${({ theme }) => theme.colors.primary};
   border-radius: 0 60px 0 0;
 `
 
@@ -16,7 +16,7 @@ const links = ['dashboard', 'home', 'settings', 'notification', 'following']
 const Sider = props => {
   return (
     <Sidebar>
-      {}
+
     </Sidebar>
   )
 }
