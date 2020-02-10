@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { animated, useSpring } from 'react-spring'
 import styled from 'styled-components'
 import { NavLink as NL } from 'react-router-dom'
 
@@ -12,6 +11,7 @@ const Sidebar = styled.div`
   min-height: 100vh;
   background-color: ${({ theme }) => theme.colors.primary};
   border-radius: 0 60px 0 0;
+  
 `
 
 const LogoWrapper = styled.div`
@@ -19,7 +19,7 @@ const LogoWrapper = styled.div`
   border-radius: 0 60px 0 0;
 `
 
-const LinksWrapper = styled(animated.nav)`
+const LinksWrapper = styled.ul`
   padding: 0; 
   height: calc(100% - 60px); 
   display: flex;
@@ -32,9 +32,9 @@ const Link = styled(NL)`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  margin: 0 15px;
+  width: calc(100% - 30px);
   height: 50px;
-  padding-left: 10px;
   font-size: 0.9em;
   color: ${({ theme }) => theme.colors.lightGrey};
   font-family: ${({ theme }) => theme.fonts.secondary};
@@ -42,18 +42,18 @@ const Link = styled(NL)`
   text-transform: capitalize;
   letter-spacing: -0.06em;
   text-decoration: none;
-  transition: all 0.25s ease;
+  transition: all 0.10s ease;
   &.active {
    color:${({ theme }) => theme.colors.primary};
+   font-size: ${({ theme }) => theme.fontSizes.small};
    background-color: white;
-   border-radius: 80px 0 0 80px;
+   border-radius: 80px 80px;
  }
  &:hover {
-  color: ${({ theme, isActive }) => isActive && theme.colors.white};
-
+  font-size: ${({ theme }) => theme.fontSizes.small};
  }
-`
 
+`
 
 const Icon = styled.i`
   flex: 1; 
@@ -66,6 +66,17 @@ const Label = styled.span`
  flex: 4;
 `
 
+
+const LoggedIn = ({ isAuthed = false }) => {
+  return (
+    <Link
+      to='/logout'>
+      <Icon className={`fas ${!isAuthed ? 'fa-sign-in-alt' : 'fa-sign-out-alt'}`} />
+      <Label>{!isAuthed ? 'Login' : 'Logout'}</Label>
+    </Link>
+
+  )
+}
 
 const links = [
   { label: 'dashboard', icon: 'fas fa-home' },
@@ -93,7 +104,7 @@ const Sider = props => {
         )
         )}
       </LinksWrapper>
-
+      <LoggedIn />
     </Sidebar>
   )
 }

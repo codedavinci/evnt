@@ -7,7 +7,7 @@ const theme = {
     secondary: "#dde8f2",
     white: "#fff",
     orange: "#f7532e",
-    lightGrey: "#7690cf",
+    lightGrey: "#96abdc",
     grey: 'grey'
   },
   fonts: {
