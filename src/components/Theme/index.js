@@ -7,10 +7,12 @@ const theme = {
     secondary: "#dde8f2",
     white: "#fff",
     orange: "#f7532e",
-    lightGrey: "#f0f5fb"
+    lightGrey: "#7690cf",
+    grey: 'grey'
   },
   fonts: {
-    primary: `"Roboto", sans-serif`
+    primary: `"Roboto", sans-serif`,
+    secondary: `'Quicksand', sans-serif;`
   },
   fontSizes: {
     small: "1em",
